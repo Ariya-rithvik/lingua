@@ -4,23 +4,35 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SignLingua - Hand Test</title>
+
+  <!-- Lingo Compiler -->
+  <script src="https://cdn.lingo.dev/compiler/v1.js"></script>
+
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>SignLingua — Hand Detection</h1>
-  <p>Allow camera access. Show your hand to see landmarks.</p>
 
+<body>
+
+  <!-- Title -->
+  <h1 lingo="title">SignLingua — Hand Detection</h1>
+
+  <!-- Instruction -->
+  <p lingo="instruction">Allow camera access. Show your hand to see landmarks.</p>
+
+  <!-- Video Feed -->
   <video id="video" style="display:none"></video>
   <canvas id="canvas" width="640" height="480"></canvas>
 
-  <div id="status">Status: waiting</div>
+  <!-- Status + Gesture -->
+  <div id="status" lingo="status_waiting">Status: waiting</div>
   <div id="output">Gesture: —</div>
 
+  <!-- Sentence + Translation Box -->
   <div id="sentenceBox">
 
-    <!-- 🔹 Translate Box -->
+    <!-- Translation UI -->
     <div id="translateBox">
-      <h3>Translate Sentence</h3>
+      <h3 lingo="translate_header">Translate Sentence</h3>
 
       <select id="languageSelect">
           <option value="en">English</option>
@@ -31,14 +43,16 @@
           <option value="fr">French</option>
       </select>
 
-      <button id="translateBtn">Translate</button>
+      <button id="translateBtn" lingo="translate_btn">Translate</button>
 
-      <p id="translatedText">Translated: —</p>
+      <p id="translatedText" lingo="translated_label">Translated: —</p>
     </div>
 
-    <p id="sentenceText">Sentence: </p>
-    <button id="clearSentence">Clear</button>
-    <button id="speakSentence">Speak</button>
+    <!-- Sentence Builder -->
+    <p id="sentenceText" lingo="sentence_label">Sentence: </p>
+    <button id="clearSentence" lingo="clear_btn">Clear</button>
+    <button id="speakSentence" lingo="speak_btn">Speak</button>
+
   </div>
 
   <!-- MediaPipe -->
@@ -46,6 +60,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 
+  <!-- Main Logic -->
   <script src="script.js"></script>
 </body>
 </html>
