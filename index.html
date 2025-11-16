@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SignLingua - Hand Test</title>
+  <title>SignLingua - Multilingual Hand Sign Translator</title>
 
   <!-- Lingo Compiler -->
   <script src="https://cdn.lingo.dev/compiler/v1.js"></script>
@@ -14,12 +14,12 @@
 <body>
 
   <!-- Title -->
-  <h1 lingo="title">SignLingua — Hand Detection</h1>
+  <h1 lingo="title">SignLingua — Hand Gesture Detection</h1>
 
   <!-- Instruction -->
   <p lingo="instruction">Allow camera access. Show your hand to see landmarks.</p>
 
-  <!-- Video Feed -->
+  <!-- Video + Canvas -->
   <video id="video" style="display:none"></video>
   <canvas id="canvas" width="640" height="480"></canvas>
 
@@ -30,7 +30,6 @@
   <!-- Sentence + Translation Box -->
   <div id="sentenceBox">
 
-    <!-- Translation UI -->
     <div id="translateBox">
       <h3 lingo="translate_header">Translate Sentence</h3>
 
@@ -48,7 +47,6 @@
       <p id="translatedText" lingo="translated_label">Translated: —</p>
     </div>
 
-    <!-- Sentence Builder -->
     <p id="sentenceText" lingo="sentence_label">Sentence: </p>
     <button id="clearSentence" lingo="clear_btn">Clear</button>
     <button id="speakSentence" lingo="speak_btn">Speak</button>

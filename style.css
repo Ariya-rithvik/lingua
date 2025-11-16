@@ -1,6 +1,22 @@
-body { font-family: Arial, sans-serif; text-align: center; background: #f7fbff; color:#111;}
-canvas { border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); margin-top: 12px;}
-#status { margin-top: 10px; font-weight: 600; }
+body { 
+  font-family: Arial, sans-serif; 
+  text-align: center; 
+  background: #f4f7ff; 
+  margin: 0; 
+  padding: 20px; 
+}
+
+canvas { 
+  border-radius: 10px; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+  margin-top: 12px; 
+}
+
+#status { 
+  margin-top: 10px; 
+  font-weight: 600; 
+}
+
 #output {
   margin-top: 15px;
   font-size: 28px;
@@ -10,15 +26,16 @@ canvas { border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); margin-top
   background: white;
   border-radius: 10px;
   display: inline-block;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
+
 #sentenceBox {
-  margin-top: 20px;
-  padding: 10px;
-  background: #eef1ff;
+  margin: 25px auto 0;
+  padding: 20px;
+  width: 420px;
+  background: #e9edff;
   border-radius: 12px;
-  width: 400px;
-  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 #sentenceText {
@@ -28,10 +45,14 @@ canvas { border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); margin-top
 
 button {
   padding: 8px 15px;
-  margin: 5px;
+  margin: 6px;
   border: none;
   border-radius: 8px;
   background: #4b6cff;
   color: white;
   cursor: pointer;
+  font-size: 14px;
+}
+button:hover {
+  background: #3a55d4;
 }

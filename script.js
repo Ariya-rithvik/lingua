@@ -10,6 +10,7 @@ let lastGesture = "—";
 let lastTime = 0;
 const COOLDOWN = 900;
 
+// Smart sentence templates
 const templates = [
   { pattern: ["Hello", "You"], sentence: "Hello, how are you?" },
   { pattern: ["You", "Help"], sentence: "Do you need help?" },
@@ -23,15 +24,7 @@ const templates = [
 let gestureHistory = [];
 
 
-// ---------------- UTILS ----------------
-function distance(a, b) {
-  return Math.sqrt(
-    (a.x - b.x)**2 +
-    (a.y - b.y)**2 +
-    (a.z - b.z)**2
-  );
-}
-
+// ---------------- GESTURE CLASSIFICATION ----------------
 function classifyGesture(landmarks) {
   function fingerOpen(tip, base) {
     return landmarks[tip].y < landmarks[base].y;
@@ -41,6 +34,7 @@ function classifyGesture(landmarks) {
   const middleOpen = fingerOpen(12, 9);
   const ringOpen = fingerOpen(16, 13);
   const pinkyOpen = fingerOpen(20, 17);
+
   const thumbOpen = Math.abs(landmarks[4].x - landmarks[3].x) > 0.03;
 
   const okDist = Math.hypot(
@@ -75,7 +69,6 @@ hands.setOptions({
   minDetectionConfidence: 0.6,
   minTrackingConfidence: 0.6
 });
-
 
 hands.onResults((results) => {
   canvasCtx.save();
@@ -132,12 +125,13 @@ hands.onResults((results) => {
 });
 
 
-// ---------------- CAMERA ----------------
+// ---------------- CAMERA SETUP ----------------
 const camera = new Camera(videoElement, {
   onFrame: async () => await hands.send({ image: videoElement }),
   width: 640,
   height: 480
 });
+
 camera.start().then(() =>
   statusDiv.innerText = "Status: Camera started"
 );
@@ -156,7 +150,7 @@ document.getElementById("speakSentence").onclick = () => {
 };
 
 
-// ---------------- WORKING TRANSLATION (SAFE API) ----------------
+// ---------------- TRANSLATION (MyMemory API) ----------------
 async function translateSentence() {
     const text = sentence.trim();
     const target = document.getElementById("languageSelect").value;
