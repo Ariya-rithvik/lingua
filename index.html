@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SignLingua - Hand Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>SignLingua — Hand Detection</h1>
+  <p>Allow camera access. Show your hand to see landmarks.</p>
+
+  <video id="video" style="display:none"></video>
+  <canvas id="canvas" width="640" height="480"></canvas>
+
+  <div id="status">Status: waiting</div>
+  <div id="output">Gesture: —</div>
+
+  <div id="sentenceBox">
+
+    <!-- 🔹 Translate Box -->
+    <div id="translateBox">
+      <h3>Translate Sentence</h3>
+
+      <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="hi">Hindi</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+      </select>
+
+      <button id="translateBtn">Translate</button>
+
+      <p id="translatedText">Translated: —</p>
+    </div>
+
+    <p id="sentenceText">Sentence: </p>
+    <button id="clearSentence">Clear</button>
+    <button id="speakSentence">Speak</button>
+  </div>
+
+  <!-- MediaPipe -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
